@@ -157,6 +157,39 @@ public class Snail : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if(target.gameObject.tag == MyTag.BULLET_TAG)
+        {
+            if(tag == MyTag.BETTLE_TAG)
+            {
+                anim.Play("Stunned");
+                can_Move = false;
+                mybody.velocity = Vector2.zero;
+
+                StartCoroutine(Dead(0.4f));
+            }
+
+            if (tag == MyTag.SNAIL_TAG)
+            {
+                if (!stunned)
+                {
+                    anim.Play("Stunned");
+                    stunned = true;
+                    can_Move = false;
+                    mybody.velocity = Vector2.zero;
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }                
+            }
+
+        }
+
+
+    }
 }
 
 
