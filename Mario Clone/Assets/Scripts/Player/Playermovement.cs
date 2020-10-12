@@ -30,10 +30,11 @@ public class Playermovement : MonoBehaviour
     {
         CheckIfGrounded();
         PlayerJump();
+        PlayerWalk();
     }
     private void FixedUpdate()
     {
-        PlayerWalk();
+        
     }
 
     private void PlayerWalk()

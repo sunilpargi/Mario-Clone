@@ -9,31 +9,43 @@ public class Snail : MonoBehaviour
     private Rigidbody2D mybody;
     private Animator anim;
 
-    private bool move_Left;
+    public LayerMask playerlayer;
 
-    public Transform down_collison;
+    private bool move_Left;
+    private bool can_Move;
+    private bool stunned;
+
+    public Transform left_Collison, right_Collison,down_Collison, top_Collison;
+    private Vector3 left_Collison_Pos, right_Collison_Pos;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         mybody = GetComponent<Rigidbody2D>();
+
+        left_Collison_Pos = left_Collison.position;
+        right_Collison_Pos = right_Collison.position;
     }
 
     void Start()
     {
         move_Left = true;
+        can_Move = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (move_Left)
+        if (can_Move)
         {
-            mybody.velocity = new Vector2(-moveSpeed, mybody.velocity.y);
-        }
-        else
-        {
-            mybody.velocity = new Vector2(moveSpeed, mybody.velocity.y);
+            if (move_Left)
+            {
+                mybody.velocity = new Vector2(-moveSpeed, mybody.velocity.y);
+            }
+            else
+            {
+                mybody.velocity = new Vector2(moveSpeed, mybody.velocity.y);
+            }
         }
 
         CheckCollison();
@@ -41,7 +53,60 @@ public class Snail : MonoBehaviour
 
     void CheckCollison()
     {
-        if(!Physics2D.Raycast(down_collison.position, Vector2.down, 0.1f))
+        RaycastHit2D leftHit = Physics2D.Raycast(left_Collison_Pos, Vector2.left, 0.1f, playerlayer);
+        RaycastHit2D rightHit = Physics2D.Raycast(right_Collison_Pos, Vector2.right, 0.1f, playerlayer);
+
+        Collider2D topHit = Physics2D.OverlapCircle(top_Collison.position, 0.2f, playerlayer);
+
+        if (topHit)
+        {
+            if(topHit.gameObject.tag == MyTag.PLAYER_TAG)
+            {
+                if (!stunned)
+                {
+                    topHit.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(topHit.gameObject.GetComponent<Rigidbody2D>().velocity.x, 7f);
+
+                    can_Move = false;
+                    mybody.velocity = Vector2.zero;
+
+                    anim.Play("Stunned");
+                    stunned = true;
+                }
+            }
+        }
+
+        if (leftHit)
+        {
+            if(leftHit.collider.gameObject.tag == MyTag.PLAYER_TAG)
+            {
+                if (!stunned)
+                {
+
+                }
+                else
+                {
+                    mybody.velocity = new Vector2 (15f, mybody.velocity.y);
+                    print("Push right");
+                }
+            }
+        }
+        if (rightHit)
+        {
+            if (rightHit.collider.gameObject.tag == MyTag.PLAYER_TAG)
+            {
+                if (!stunned)
+                {
+
+                }
+                else
+                {
+                    mybody.velocity = new Vector2(-15f, mybody.velocity.y);
+                    print("Push left");
+                }
+            }
+        }
+
+        if (!Physics2D.Raycast(down_Collison.position, Vector2.down, 0.1f))
         {
             ChangeDirection();
         }
@@ -56,10 +121,16 @@ public class Snail : MonoBehaviour
         if (move_Left)
         {
             tempScale.x = Mathf.Abs(tempScale.x);
+
+            left_Collison_Pos = left_Collison.position;
+            right_Collison_Pos = right_Collison.position;
         }
         else
         {
             tempScale.x = - Mathf.Abs(tempScale.x);
+
+            left_Collison_Pos = right_Collison.position;
+            right_Collison_Pos = left_Collison.position;
         }
         transform.localScale = tempScale;
     }
