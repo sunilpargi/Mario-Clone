@@ -6,6 +6,7 @@ using UnityEngine;
 public class Playermovement : MonoBehaviour
 {
     private float speed = 5f;
+    private float jumpForce = 12f;
 
     private Animator anim;
     private Rigidbody2D mybody;
@@ -13,23 +14,22 @@ public class Playermovement : MonoBehaviour
     public Transform groundCheckPosition;
     public LayerMask groundLayer;
 
+    private bool isgrounded;
+    private bool jumped;
+   
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         mybody = GetComponent<Rigidbody2D>();
     }
-    void Start()
-    {
-        
-    }
+  
 
     // Update is called once per frame
     void Update()
     {
-        if(Physics2D.Raycast(groundCheckPosition.position, Vector2.down, 0.5f, groundLayer))
-        {
-            print("grounded");
-        }
+        CheckIfGrounded();
+        PlayerJump();
     }
     private void FixedUpdate()
     {
@@ -64,7 +64,57 @@ public class Playermovement : MonoBehaviour
         tempScale.x = direction;
         transform.localScale = tempScale;
     }
+    void CheckIfGrounded()
+    {
+        isgrounded = Physics2D.Raycast(groundCheckPosition.position, Vector2.down, 0.1f, groundLayer);
+        
+        if (isgrounded)
+        {
+            //and if we jumped before
+            if (jumped)
+            {
+                jumped = false;
+                anim.SetBool("Jump", false);
+            }
+        }
+    }
+    void PlayerJump()
+    {
+        if (isgrounded)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jumped = true;
+                mybody.velocity = new Vector2(mybody.velocity.x, jumpForce);
+                anim.SetBool("Jump", true);
+            }
+        }
+    }
 }//class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
