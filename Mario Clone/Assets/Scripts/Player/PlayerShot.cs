@@ -20,7 +20,7 @@ public class PlayerShot : MonoBehaviour
 
     private void ShotBullet()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject bullet = Instantiate(fireBullet, transform.position, quaternion.identity);
 
