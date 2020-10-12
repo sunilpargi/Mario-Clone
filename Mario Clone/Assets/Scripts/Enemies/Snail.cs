@@ -71,6 +71,12 @@ public class Snail : MonoBehaviour
 
                     anim.Play("Stunned");
                     stunned = true;
+
+                    if(tag == MyTag.BETTLE_TAG)
+                    {
+                        anim.Play("Stunned");
+                        StartCoroutine(Dead(0.5f));
+                    }
                 }
             }
         }
@@ -81,12 +87,17 @@ public class Snail : MonoBehaviour
             {
                 if (!stunned)
                 {
-
+                    print("Damage");
                 }
                 else
                 {
-                    mybody.velocity = new Vector2 (15f, mybody.velocity.y);
-                    print("Push right");
+                    if (tag != MyTag.BETTLE_TAG)
+                    {
+                        mybody.velocity = new Vector2(15f, mybody.velocity.y);
+                        print("Push right");
+                        StartCoroutine(Dead(3f));
+                    }
+                     
                 }
             }
         }
@@ -96,12 +107,17 @@ public class Snail : MonoBehaviour
             {
                 if (!stunned)
                 {
-
+                    print("Damage");
                 }
                 else
                 {
-                    mybody.velocity = new Vector2(-15f, mybody.velocity.y);
-                    print("Push left");
+                    if(tag != MyTag.BETTLE_TAG)
+                    {
+                        mybody.velocity = new Vector2(-15f, mybody.velocity.y);
+                        print("Push left");
+                        StartCoroutine(Dead(3f));
+                    }
+                   
                 }
             }
         }
@@ -133,6 +149,13 @@ public class Snail : MonoBehaviour
             right_Collison_Pos = left_Collison.position;
         }
         transform.localScale = tempScale;
+    }
+
+    IEnumerator Dead(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+
+        gameObject.SetActive(false);
     }
 }
 
