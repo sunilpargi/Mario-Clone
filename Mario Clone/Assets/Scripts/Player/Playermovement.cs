@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
-    private float speed = 5f;
-    private float jumpForce = 12f;
+    public float speed = 5f;
+    public float jumpForce = 15f;
 
     private Animator anim;
     private Rigidbody2D mybody;

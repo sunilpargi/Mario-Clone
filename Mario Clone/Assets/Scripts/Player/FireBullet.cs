@@ -60,6 +60,7 @@ public class FireBullet : MonoBehaviour
             anim.Play("Explode");
             CanMove = false;
             StartCoroutine(DisableBullet(0.1f));
+
         }
     }
 }

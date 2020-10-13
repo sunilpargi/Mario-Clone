@@ -84,12 +84,7 @@ public class Bird : MonoBehaviour
        
     }
 
-    IEnumerator BirdDied()
-    {
-        yield return new WaitForSeconds(3f);
 
-        gameObject.SetActive(false);
-    }
     private void OnTriggerEnter2D(Collider2D target)
     {
         if(target.gameObject.tag == MyTag.BULLET_TAG)
@@ -102,5 +97,12 @@ public class Bird : MonoBehaviour
 
             StartCoroutine(BirdDied());
         }
+    }
+
+    IEnumerator BirdDied()
+    {
+        yield return new WaitForSeconds(3f);
+
+        gameObject.SetActive(false);
     }
 }

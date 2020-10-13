@@ -55,7 +55,7 @@ public class Spider : MonoBehaviour
     {
         if (target.gameObject.tag == MyTag.BULLET_TAG)
         {
-            anim.Play("SpiderDead");
+            anim.Play("SpiderDead ");
 
             mybody.bodyType = RigidbodyType2D.Dynamic;
 
