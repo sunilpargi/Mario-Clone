@@ -9,7 +9,7 @@ public class Egg : MonoBehaviour
     {
         if(target.gameObject.tag == MyTag.PLAYER_TAG)
         {
-
+            target.gameObject.GetComponent<PlayerDamage>().DealDamage();
         }
         gameObject.SetActive(false);
 

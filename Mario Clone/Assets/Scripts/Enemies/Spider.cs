@@ -62,6 +62,11 @@ public class Spider : MonoBehaviour
             StartCoroutine(SpiderDied());
             StopCoroutine(couroutine_Name);
         }
+
+        if(target.tag == MyTag.PLAYER_TAG)
+        {
+            target.gameObject.GetComponent<PlayerDamage>().DealDamage();
+        }
     }
 
     IEnumerator SpiderDied()

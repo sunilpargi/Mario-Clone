@@ -14,6 +14,9 @@ public class Frog : MonoBehaviour
 
     private string coroutine_Name = "FrogJump";
 
+    public LayerMask playerLayer;
+    private GameObject player;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -22,8 +25,15 @@ public class Frog : MonoBehaviour
     private void Start()
     {
         StartCoroutine(coroutine_Name);
+        player = GameObject.Find("Player").gameObject;
     }
-
+    private void Update()
+    {
+        if(Physics2D.OverlapCircle(transform.position, 0.5f, playerLayer))
+        {
+            player.GetComponent<PlayerDamage>().DealDamage();
+        }
+    }
     // Update is called once per frame
     void LateUpdate()
     {

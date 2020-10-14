@@ -87,7 +87,7 @@ public class Snail : MonoBehaviour
             {
                 if (!stunned)
                 {
-                    print("Damage");
+                    leftHit.collider.gameObject.GetComponent<PlayerDamage>().DealDamage();
                 }
                 else
                 {
@@ -107,7 +107,7 @@ public class Snail : MonoBehaviour
             {
                 if (!stunned)
                 {
-                    print("Damage");
+                  rightHit.collider.gameObject.GetComponent<PlayerDamage>().DealDamage();
                 }
                 else
                 {
