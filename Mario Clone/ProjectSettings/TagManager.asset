@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Spider
   - Coin
+  - Boss
   layers:
   - Default
   - TransparentFX
