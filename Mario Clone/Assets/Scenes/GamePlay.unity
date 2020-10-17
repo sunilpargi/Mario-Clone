@@ -1856,17 +1856,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2062963073974562991, guid: e0b4cb966d51ab541a46dc738d26e8fe, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2062963073974562993, guid: e0b4cb966d51ab541a46dc738d26e8fe, type: 3}
       propertyPath: m_Name
       value: Beetle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2062963073974562993, guid: e0b4cb966d51ab541a46dc738d26e8fe, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0b4cb966d51ab541a46dc738d26e8fe, type: 3}
@@ -1938,17 +1930,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2186985480431066289, guid: 2afeab5e3c4daf042963d99df8ed5e26, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2186985480431066293, guid: 2afeab5e3c4daf042963d99df8ed5e26, type: 3}
       propertyPath: m_Name
       value: Snail
-      objectReference: {fileID: 0}
-    - target: {fileID: 2186985480431066293, guid: 2afeab5e3c4daf042963d99df8ed5e26, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2186985480431066302, guid: 2afeab5e3c4daf042963d99df8ed5e26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2072,10 +2056,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrogParent
       objectReference: {fileID: 0}
-    - target: {fileID: 6067631345087174667, guid: 17b07e2bfdad0a0488a9bf93aeb86809, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6067631345087174668, guid: 17b07e2bfdad0a0488a9bf93aeb86809, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.97
@@ -2120,10 +2100,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6067631345357631120, guid: 17b07e2bfdad0a0488a9bf93aeb86809, type: 3}
-      propertyPath: playerLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17b07e2bfdad0a0488a9bf93aeb86809, type: 3}
 --- !u!1001 &6827336584010567145
@@ -2136,14 +2112,6 @@ PrefabInstance:
     - target: {fileID: 6827336583300077697, guid: 3ca8ecc04becdc5409000789fa271c30, type: 3}
       propertyPath: m_Name
       value: Spider
-      objectReference: {fileID: 0}
-    - target: {fileID: 6827336583300077697, guid: 3ca8ecc04becdc5409000789fa271c30, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6827336583300077700, guid: 3ca8ecc04becdc5409000789fa271c30, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6827336583300077703, guid: 3ca8ecc04becdc5409000789fa271c30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2198,10 +2166,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7019572115929350017, guid: 4f266cdb7ea32c9479f235685a119aa1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7019572115929350018, guid: 4f266cdb7ea32c9479f235685a119aa1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01
@@ -2249,10 +2213,6 @@ PrefabInstance:
     - target: {fileID: 7019572115929350031, guid: 4f266cdb7ea32c9479f235685a119aa1, type: 3}
       propertyPath: m_Name
       value: Bird
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019572115929350031, guid: 4f266cdb7ea32c9479f235685a119aa1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f266cdb7ea32c9479f235685a119aa1, type: 3}
